@@ -29,7 +29,7 @@
    - Note: If you prefer to refit the logistic model for propensity score estimation and estimate the PS again:  
      - Uncomment lines 87–98 in `estimation.R`.  
      - Be aware that fitting the model can take **up to 8 hours**.  
-     - The refitted model and the reestimated PS will be saved automatically as `logit_model.rds` and `PS.rds`.
+     - The refitted model and the reestimated PS will be saved automatically as `logit_model.rds` and `PS.rds` in your working directory.
 
 ---
 
