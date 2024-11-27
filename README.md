@@ -23,13 +23,13 @@
        - `CampusFile_WK_cities.csv`  
        - `number_observations_panel.xlsx`
 
-3. **Fitted Logistic Model**  
-   - File: `logit_model.rds`  
+3. **Propensity Score from Fitted Logistic Model**  
+   - File: `PS.rds`  
    - Source: Provided in this GitHub repository.  
-   - Note: If you prefer to refit the logistic model for propensity score estimation:  
-     - Uncomment lines 87–92 in `estimation.R`.  
+   - Note: If you prefer to refit the logistic model for propensity score estimation and estimate the PS again:  
+     - Uncomment lines 87–98 in `estimation.R`.  
      - Be aware that fitting the model can take **up to 8 hours**.  
-     - The refitted model will be saved automatically as `logit_model.rds`.
+     - The refitted model and the reestimated PS will be saved automatically as `logit_model.rds` and `PS.rds`.
 
 ---
 
@@ -50,8 +50,9 @@
 ---
 
 ## Step 4: Estimate Models
-- Run `estimation.R` to estimate models.  
-- At the end of the script (lines 690–700), a summary of **6 models for ATT estimation** will be displayed:
+- Run `estimation.R` to estimate models.
+- The code is also commented and can be optionally run line by line for better understanding. 
+- At the end of the script (lines 695–705), a summary of **6 models for ATT estimation** will be displayed:
 
 ### Models Using Unmatched Samples:
 1. `s.model` – Simple linear model (mean difference between control and treatment groups).  
@@ -61,7 +62,7 @@
 3. `s.model_ad` – Simple linear model (mean difference between control and treatment groups).  
 4. `model_ad` – Multiple log-linear model.
 
-### Models Using Refined Matched Samples (via 3-NN without replacement):
+### Models Using Matched Samples (via 3-NN with replacement):
 5. `s.model_ad_r` – Simple linear model (mean difference between control and treatment groups).  
 6. `model_ad_r` – Multiple log-linear model.
 
